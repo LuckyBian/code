@@ -49,6 +49,7 @@ module.exports.routes = {
 'POST /user/login': 'UserController.login',
 'POST /user/logout': 'UserController.logout',
 'GET /user/logout': 'UserController.logout',
+'GET /user/register': 'UserController.register',
 
 //let admin see all registers of an event
 'GET /person/:id/register': 'PersonController.populate',

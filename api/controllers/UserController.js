@@ -56,6 +56,13 @@ module.exports = {
             return res.json(obj);
         });
     },
+
+    // register function
+    register: async function(req,res){
+        if (req.method == "GET") 
+        return res.view('user/register');
+
+    },
 //Logout function
     logout: async function (req, res) {
 

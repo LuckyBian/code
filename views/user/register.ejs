@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top" lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Test</title>
+
+  <style>
+    #box1 {
+      width: 100%;
+      background-color: lightblue;
+      float: left;
+      color: white;
+    }
+
+    .loginbox{
+      margin-top: 40px;
+      margin-right: 50px;
+      background-color:rgb(202, 231, 240);
+      float: right;
+    }
+
+    .form{
+      padding-bottom: 100px;
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
+    .input{
+      margin-top: 20px;
+      width: 230px;
+      height: 35px;
+    }
+
+    .field{
+      text-align: center;
+    }
+
+    .image{
+      width: 200px;
+      height: 200px;
+    }
+
+    li{
+            line-height: 48px;
+            list-style-type: none;
+            float: left;
+            justify-content: space-around;
+            display: flex;
+            flex-wrap: wrap
+        }
+
+        a{
+            display: block;
+            text-decoration: none;
+            color: #777777;
+            font-size: 18px;
+            padding: 0 39px;
+        }
+
+        .li:hover{
+            background-color: #3F3F3F;
+            color: #E8E7E3;
+        }
+
+        a :hover{
+            color: blue;
+        }
+  </style>
+
+</head>
+
+<body>
+
+  <div>
+    <li>
+        <a class="li" href="https://bulma.io/"><strong>BULMA</strong></a>
+    </li>
+
+    <li>
+        <a class="li" href="/">Home</a>
+    </li>
+
+    <li>
+        <a class="li" href="/vistor/search">Search</a>
+    </li>
+
+</div>
+
+  <div id="box1">
+    <h1><strong style="color: white; font-size: 30px;">Digital Rights Management System</strong></h1>
+    <h6>Digital Rights Management System incorporates blockchain technology to maintain users' copyrights. All
+      information will be stored on the blockchain and will be traceable and tamper-evident.</h6>
+  </div>
+
+
+    <span class="loginbox">
+
+      <form class="form" action="/user/login" method="POST" onsubmit="submitForm(this); return false">
+        
+        <div class="field">
+          <p class="control has-icons-left has-icons-right">
+            <input class="input" type="text" placeholder="Username" name="username">
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+          </p>
+        </div>
+  
+  
+        <div class="field">
+          <p class="control has-icons-left">
+            <input class="input" type="password" placeholder="Password" name="password">
+            <span class="icon is-small is-left">
+              <i class="fas fa-lock"></i>
+            </span>
+          </p>
+        </div>
+
+        <div class="field">
+            <p class="control has-icons-left">
+              <input class="input" type="password" placeholder="Password Again" name="password">
+              <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+              </span>
+            </p>
+          </div>
+
+
+        <div class="field">
+            <button class="button is-success">
+              Register
+            </button>
+        </div>
+      </form>
+  
+    </span>
+
+
+  
+
+</body>
+
