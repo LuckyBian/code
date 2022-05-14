@@ -49,26 +49,6 @@ module.exports = {
         
      },
 
-     //The page for Student
-    studentPage: async function (req, res) {
-
-        // var everyones = await Person.find();
-         
-         // return res.view('person/page', { persons: everyones });
- 
-         var whereClause = {};
-         
-         whereClause.he = "on";
-         
-         var thosePersons = await Person.find({
-             where: whereClause,
-             sort: 'he'
-         });
-         
-         return res.view('student/page', { persons: thosePersons });
-        
-     },
-
     // creat a event
     create: async function (req, res) {
 
@@ -234,37 +214,6 @@ module.exports = {
             var count = numPerson.length;
     
             return res.view('vistor/event', { persons: somePersons , total: count });  
-        },
-
-    //Search event for student
-    studentEvent: async function (req, res) {
-
-        var perPage = Math.max(req.query.perPage, 2) || 2;
-        var current  = Math.max(req.query.current - 1, 0) || 0;
-        var whereClause = {};
-            
-        if (req.query.name) whereClause.name = { contains: req.query.name };
-        if (req.query.venue) whereClause.venue = req.query.venue;
-        if (req.query.organizer) whereClause.organizer = req.query.organizer;
-    
-        var sd = new Date(req.query.sd);
-        var ed = new Date(req.query.ed);
-        if (!isNaN(sd) & !isNaN(ed)) whereClause.date = { '<=': ed, '>=': sd };
-    
-            var somePersons = await Person.find({
-                where: whereClause,
-                sort: 'name',
-                limit: perPage,
-                skip: current
-            });
-    
-            var numPerson = await Person.find({
-                where: whereClause,
-            });
-    
-            var count = numPerson.length;
-    
-            return res.view('student/event', { persons: somePersons , total: count });  
         },
 
     // action - paginate
