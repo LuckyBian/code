@@ -1,0 +1,107 @@
+<!--admin.ejs-->
+
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <style>
+        li{
+            line-height: 48px;
+            list-style-type: none;
+            float: left;
+            justify-content: space-around;
+            display: flex;
+            flex-wrap: wrap
+        }
+
+        a{
+            display: block;
+            text-decoration: none;
+            color: #777777;
+            font-size: 18px;
+            padding: 0 39px;
+        }
+
+        a:hover{
+            background-color: #3F3F3F;
+            color: #E8E7E3;
+        }
+
+        #box1{
+            width: 100%;
+            background-color: lightblue;
+            float: left;
+            color: white;
+        }
+        *{
+          padding-top: 0px !important;
+        }
+
+        #l{
+            color: blue;
+        }
+
+        #l:hover{
+            background-color: white;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <li>
+            <a href="https://bulma.io/"><strong>BULMA</strong></a>
+        </li>
+    
+        <li>
+            <a href="/admin">Home</a>
+        </li>
+    
+        <li>
+            <a href="/person/search">Search</a>
+        </li>
+    
+        <li>
+            <a href="/person/create">Create</a>
+        </li>
+    
+        <li>
+            <a href="/person/admin">Admin</a>
+        </li>
+
+        <li style="float: right !important;">
+            <a class = "li" href="/user/logout">Logout</a>
+        </li>
+
+        <li class="point" style="float: right !important;">
+            <a class = "li" href="/user/login"> <%= req.session.username%></a>
+        </li>
+    </div>
+
+    <div id="box1">
+        <h1><strong style="color: white; font-size: 30px;">Digital Rights Management System</strong></h1>
+        <h6>Digital Rights Management System incorporates blockchain technology to maintain users' copyrights. All information will be stored on the blockchain and will be traceable and tamper-evident.</h6>
+    </div>
+
+
+    
+
+    <table class="table is-bordered is-striped is-hoverable is-fullwidth">
+        <tr>
+            <th>ID</th>
+            <th>User Name</th>
+        </tr>
+        
+        <% persons.forEach( function(person) { %>
+        
+            <tr>
+                <td><%= person.id %></td>
+                <td><%= person.username %></td>               
+            </tr>
+        
+        <% }); %>    
+    </table>
+</body>

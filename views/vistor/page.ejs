@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <style>
+        li{
+            line-height: 48px;
+            list-style-type: none;
+            float: left;
+            justify-content: space-around;
+            display: flex;
+            flex-wrap: wrap
+        }
+
+        a{
+            display: block;
+            text-decoration: none;
+            color: #777777;
+            font-size: 18px;
+            padding: 0 39px;
+        }
+
+        .li:hover{
+            background-color: #3F3F3F;
+            color: #E8E7E3;
+        }
+
+        a :hover{
+            color: blue;
+        }
+
+        #box1{
+            width: 100%;
+            background-color: lightblue;
+            float: left;
+            color: white;
+        }
+
+        *{
+          padding-top: 0px !important;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- create the structure-->
+        <div>
+            <li>
+                <a class="li" href="https://bulma.io/"><strong>BULMA</strong></a>
+            </li>
+        
+            <li>
+                <a class="li" href="/">Home</a>
+            </li>
+        
+            <li>
+                <a class="li" href="/vistor/search">Search</a>
+            </li>
+
+            <li style="float: right !important;">
+                <a class = "li" href="/user/login">Login</a>
+            </li>
+        
+        </div>
+
+        <div id="box1">
+            <h1><strong style="color: white; font-size: 30px;">Digital Rights Management System</strong></h1>
+            <h6>Digital Rights Management System incorporates blockchain technology to maintain users' copyrights. All information will be stored on the blockchain and will be traceable and tamper-evident.</h6>
+        </div>
+
+        <section class="section" style="float: left;">
+            <div class="container" style=" justify-content: space-around; flex-wrap: wrap; float: left;">
+        
+                    <% persons.forEach( function(person) { %>
+                        
+                            <a href="/vistor/list?name=<%=person.name%>&sd=<%=person.sd%>" style="float: left; margin-top: 10px; ">
+                                <div class="is-half-mobile" style="background-color: lightgrey;">
+                                    <image class="is-square" style="width: 300px; 
+                                    height: 300px; float: left; object-fit: fill;" src="<%=person.url%>" />
+
+                                <div style="width: 100px; float: left; overflow: hidden; text-overflow: ellipsis;">
+                                    <strong><%=person.name%></strong>                        
+                                   <p><%=person.sd%></p> 
+                                </div>
+                                    
+                            </div>                               
+                            </a>
+
+                                                  
+                               
+                        <% }); %>
+        
+            </div>
+        </section>
+
+</body>
+</html>

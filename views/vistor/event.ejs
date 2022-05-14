@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <style>
+        li{
+            line-height: 48px;
+            list-style-type: none;
+            float: left;
+            justify-content: space-around;
+            display: flex;
+            flex-wrap: wrap
+        }
+
+        a{
+            display: block;
+            text-decoration: none;
+            color: #777777;
+            font-size: 18px;
+            padding: 0 39px;
+        }
+
+        .li:hover{
+            background-color: #3F3F3F;
+            color: #E8E7E3;
+        }
+
+        a :hover{
+            color: blue;
+        }
+
+        #box1{
+            width: 100%;
+            background-color: lightblue;
+            float: left;
+            color: white;
+        }
+
+        *{
+          padding-top: 0px !important;
+        }
+
+        #searchout{
+            display: flex;
+            width: 60%;
+            flex-wrap: wrap;
+            float: left;
+            text-overflow: ellipsis;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- create the structure-->
+        <div>
+            <li>
+                <a class="li" href="https://bulma.io/"><strong>BULMA</strong></a>
+            </li>
+        
+            <li>
+                <a class="li" href="/">Home</a>
+            </li>
+        
+            <li>
+                <a class="li" href="/vistor/search">Search</a>
+            </li>
+
+            <li style="float: right !important;">
+              <a class = "li" href="/user/login">Login</a>
+          </li>
+
+        </div>
+
+        <div id="box1">
+          <h1><strong style="color: white; font-size: 30px;">Digital Rights Management System</strong></h1>
+          <h6>Digital Rights Management System incorporates blockchain technology to maintain users' copyrights. All information will be stored on the blockchain and will be traceable and tamper-evident.</h6>
+      </div>
+
+        <div style="width: 60%; overflow: hidden;" id="searchout">
+            <% persons.forEach( function(person) { %>
+            <div style="text-overflow: ellipsis;">
+                <image class="is-square" style="width: 300px; height: 300px; 
+                margin-left: 20px; margin-top: 20px; object-fit: fill; "src="<%=person.url%>" />
+
+            <div style="width: 300px; margin-left: 20px; 
+            background-color:whitesmoke; overflow: hidden; text-overflow: ellipsis;">
+            <a href="/vistor/list?name=<%=person.name%>&sd=<%=person.sd%>">
+                <p style="margin-left: 20px;"><h3><%=person.name%></h3></p>
+            <p><%=person.organizer%></p>
+            <br>
+            <p><%=person.name%></p>
+            <p><%=person.date%></p>
+            <p><%=person.st%> - <%=person.et%></p>
+
+            </a>
+            </div>
+            
+            </div> 
+            <% }); %>  
+
+            <nav style="float: left; margin-top: 5px;" class="pagination" role="navigation" aria-label="pagination">
+              <a class="pagination-previous" id="previousButton">Previous</a>
+              <a class="pagination-next" id="nextButton">Next page</a>
+              <ul class="pagination-list">
+                  <li>
+                      <a class="pagination-link" id="firstLink">1</a>
+                  </li>
+                  <li>
+                      <span class="pagination-ellipsis">&hellip;</span>
+                  </li>
+                  <li>
+                      <a class="pagination-link" id="previousLink">45</a>
+                  </li>
+                  <li>
+                      <a class="pagination-link is-current" id="currentLink">46</a>
+                  </li>
+                  <li>
+                      <a class="pagination-link" id="nextLink">47</a>
+                  </li>
+                  <li>
+                      <span class="pagination-ellipsis">&hellip;</span>
+                  </li>
+                  <li>
+                      <a class="pagination-link" id="lastLink">86</a>
+                  </li>
+              </ul>
+          </nav>
+            
+            
+        </div>
+
+        
+
+        <div style="display: flex; width:  40%; float: right;">
+            
+                <form method="GET" action="/vistor/search" style="width: 100%;">
+                <div class="field">
+                    <label class="label">Event Name</label>
+                    <div class="control">
+                      <input id="name" class="input" type="text" placeholder="Text input" name="name">
+                    </div>
+                  </div>
+
+                  <div class="field">
+                    <label class="label">Organizer</label>
+                    <div class="control">
+                      <div class="select">
+                        <select id="organizer" name="organizer">
+                          <option></option>
+                          <option>Organizer1</option>
+                          <option>Organizer2</option>
+                          <option>Organizer3</option>
+                          <option>Organizer4</option>
+                          <option>Organizer5</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="field">
+                    <label class="label">Start Date</label>
+                    <div class="control">
+                      <input id="sd" class="input" type="date"value="dd/mm/yy" name="sd">
+                    </div>
+                  </div>
+
+                  <div class="field">
+                    <label class="label">End Date</label>
+                    <div class="control">
+                      <input id="ed" class="input" type="date"value="dd/mm/yy" name="ed">
+                    </div>
+                  </div>                 
+
+                  <div class="field">
+                    <label class="label">Venue</label>
+                    <div class="control">
+                      <div class="select">
+                        <select id="venue" name="venue">
+                          <option></option>
+                          <option>Venue1</option>
+                          <option>Venue2</option>
+                          <option>Venue3</option>
+                          <option>Venue4</option>
+                          <option>Venue5</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="field is-grouped">
+                    <div class="control">
+                      <button class="button is-link" type="submit">
+                          Submit
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+                
+        </div>
+
+       
+
+        <script>
+          function buildLinks() {
+      
+              var previousButton = document.getElementById("previousButton");
+              var nextButton = document.getElementById("nextButton");
+              var currentLink = document.getElementById("currentLink");
+              var previousLink = document.getElementById("previousLink");
+              var nextLink = document.getElementById("nextLink");
+              var firstLink = document.getElementById("firstLink");
+              var lastLink = document.getElementById("lastLink");
+      
+              var total = parseInt("<%= total %>");
+              var perPage = Math.max(parseInt("<%= req.query.perPage %>"), 2) || 2;
+              var current = (Math.max(parseInt("<%= req.query.current %>"), 1) || 1);
+
+              var name = "<%= req.query.name %>";
+              var organizer = "<%= req.query.organizer %>" || "";
+              var venue = "<%= req.query.venue %>" || "";
+              var sd = "<%= req.query.sd %>";
+              var ed = "<%= req.query.ed %>";
+
+            
+               var baseUrl = "/vistor/search?"
+               + "name="+ name 
+               + "&organizer="+organizer
+               +"&venue="+ venue
+               +"&perPage=" + perPage 
+               +"&sd=" + sd 
+               +"&ed=" + ed
+               +"&current=";
+              
+      
+              firstLink.href = baseUrl + perPage;
+              previousButton.href = baseUrl + (current - 1);
+              previousLink.href = baseUrl + (current - 1);
+              currentLink.href = baseUrl + current;
+              nextLink.href = baseUrl + (current + 1);
+              nextButton.href = baseUrl + (current + 1);
+              lastLink.href = baseUrl + Math.ceil(total / perPage);
+                   
+              previousLink.innerHTML = current - 1;
+              currentLink.innerHTML = current;
+              nextLink.innerHTML = current + 1;
+              lastLink.innerHTML = Math.ceil(total / perPage); 
+      
+              if (current <= 1) {
+                  previousButton.setAttribute("disabled", true);
+                  previousButton.href = "";
+                  previousLink.style.display = "none";
+              }
+      
+              if (current >= Math.ceil(total / perPage)) {
+                  nextButton.setAttribute("disabled", true);
+                  nextButton.href = "";
+                  nextLink.style.display = "none";
+              }
+          }
+      
+          buildLinks();
+      
+      </script>
+</body>
+</html>

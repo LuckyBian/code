@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <style>
+        li{
+            line-height: 48px;
+            list-style-type: none;
+            float: left;
+            justify-content: space-around;
+            flex-wrap: wrap
+        }
+
+        a{
+            display: block;
+            text-decoration: none;
+            color: #777777;
+            font-size: 18px;
+            padding: 0 39px;
+        }
+
+        a:hover{
+            background-color: #3F3F3F;
+            color: #E8E7E3;
+        }
+
+        #box1{
+            width: 100%;
+            background-color: lightblue;
+            float: left;
+            color: white;
+        }
+
+        #leftq{
+            width: 50%;
+            float: left;
+            justify-content: space-around;
+            flex-wrap: wrap
+        }
+
+        #rightq{
+            width: 50%;
+            float: right;
+            justify-content: space-around;
+            flex-wrap: wrap
+        }
+
+        *{
+          padding-top: 0px !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- navigation -->
+
+    <div>
+        <li>
+            <a href="https://bulma.io/"><strong>BULMA</strong></a>
+        </li>
+    
+        <li>
+            <a href="/admin">Home</a>
+        </li>
+    
+        <li>
+            <a href="/person/search">Search</a>
+        </li>
+    
+        <li>
+            <a href="/person/create">Create</a>
+        </li>
+    
+        <li>
+            <a href="/person/admin">Admin</a>
+        </li>
+
+        <li style="float: right !important;">
+          <a class = "li" href="/user/logout">Logout</a>
+        </li>
+
+        <li class="point" style="float: right !important;">
+          <a class = "li" href="/user/login"> <%= req.session.username%></a>
+        </li>
+
+
+    </div>
+    
+    <!-- text -->
+    <div id="box1">
+      <h1><strong style="color: white; font-size: 30px;">Digital Rights Management System</strong></h1>
+      <h6>Digital Rights Management System incorporates blockchain technology to maintain users' copyrights. All information will be stored on the blockchain and will be traceable and tamper-evident.</h6>
+  </div>
+
+    <!-- question -->
+    
+    <form action="/person/update/<%= person.id %>" method="post">
+        
+    
+        <div id="leftq">
+          <div class="field">
+              <label class="label">Event Name</label>
+              <div class="control">
+                <input class="input" type="text" placeholder="Text input" name="name" value="<%=person.name%>" required>
+              </div>
+            </div>
+  
+            <div class="field">
+              <label class="label">Short Description</label>
+              <div class="control">
+                <input value="<%=person.sd%>"class="input" type="text" placeholder="Text input" name="sd" required>
+              </div>
+            </div>
+  
+            <div class="field">
+              <label class="label">Long Description</label>
+              <div class="control">
+                <textarea  class="textarea" placeholder="Textarea" rows="3" name="ld" required>
+                    <%=person.ld%>
+                </textarea>
+              </div>
+            </div>
+  
+            <div class="field">
+              <label class="label">Image URL</label>
+              <div class="control">
+                <input value="<%=person.url%>" class="input" type="text" name="url" required>
+              </div>
+            </div>
+  
+            <div class="field">
+              <label class="label">Organizer</label>
+              <div class="control">
+                <div class="select">
+                  <select name="organizer" required>
+                      <option selected><%=person.organizer%></option>
+                    <option ></option>
+                    <option>Organizer1</option>
+                    <option>Organizer2</option>
+                    <option>Organizer3</option>
+                    <option>Organizer4</option>
+                    <option>Organizer5</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+  
+      </div>
+
+      <div id="rightq">
+          <div class="field">
+              <label class="label">Event Date</label>
+              <div class="control">
+                <input value="<%=person.date%>" class="input" type="date"value="dd/mm/yy" name="date" required>
+              </div>
+            </div>
+  
+            <div class="field">
+              <label class="label">Start Time</label>
+              <div class="control">
+                <input value="<%=person.st%>" class="input" type="time" value="--:-- --" name="st" required>
+              </div>
+            </div>
+  
+            <div class="field">
+              <label class="label">End Time</label>
+              <div class="control">
+                  <input value="<%=person.et%>" class="input" type="time" placeholder="--:-- --" name="et" required>
+              </div>
+            </div>
+  
+            <div class="field">
+              <label class="label">Venue</label>
+              <div class="control">
+                <div class="select">
+                  <select name="venue" required>
+                    <option selected> "<%=person.venue%>" </option>
+                    <option></option>
+                    <option>Venue1</option>
+                    <option>Venue2</option>
+                    <option>Venue3</option>
+                    <option>Venue4</option>
+                    <option>Venue5</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+  
+            <div class="field">
+              <label class="label">Quota</label>
+              <div class="control">
+                <input value="<%=person.quota%>" class="input" type="number" placeholder="Text input" name="quota" required>
+              </div>
+            </div>
+  
+            <div class="field">
+              <div class="control">
+                <label class="checkbox">
+                  <input value="<%=person.he%>" type="checkbox" name="he">
+                  Highlight Event
+                </label>
+              </div>
+            </div>
+  
+            <div class="field is-grouped">
+              <div class="control">
+                <button class="button is-link" type="submit">Submit</button>
+              </div>
+              <div class="control" style="float: left;">
+                <button class="button is-link is-light" type="reset">Cancel</button>
+              </div>
+            </div>  
+      
+
+      </div> 
+      
+    </form>
+   
+        
+   
+</body>
+</html>
