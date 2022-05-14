@@ -120,55 +120,11 @@ module.exports = {
         return res.view('vistor/list', { persons: thosePersons });
     },
 
-    // See event details for student
-    studentSearch: async function (req, res) {
-    
-        var whereClause = {};
-        
-        if (req.query.name) whereClause.name = req.query.name;
-        
-        var sd = req.query.sd;
-        if (!isNaN(sd)) whereClause.sd = sd;
-        
-        var thosePersons = await Person.find({
-            where: whereClause,
-            sort: 'name'
-        });
-
-        var whereC = {};
-        
-        whereC.username = req.session.username;
-        
-        var Persons = await User.find({
-            where: whereC,
-            sort: 'username'
-        });
-        var id;
-
-        Persons.forEach( function(person) {
-            id = person.id;
-        });
-
-        var user = await User.findOne(id).populate("events");
-
-        var reg = false;
-
-         user.events.forEach( function(person) {
-             if(person.name == req.query.name)
-             reg = true;
-         });      
-
-        if(reg) return res.view('student/list2', { persons: thosePersons });
-   
-        return res.view('student/list', { persons: thosePersons });
-    },
-
-
     // Search for event for admin
     event: async function (req, res) {
 
     var perPage = Math.max(req.query.perPage, 2) || 2;
-    var current  = Math.max(req.query.current - 1, 0) || 0;
+    var current  = perPage * Math.max(req.query.current - 1, 0) || 0;
     var whereClause = {};
         
     if (req.query.name) whereClause.name = { contains: req.query.name };
@@ -199,7 +155,7 @@ module.exports = {
     vistorEvent: async function (req, res) {
 
         var perPage = Math.max(req.query.perPage, 2) || 2;
-        var current  = Math.max(req.query.current - 1, 0) || 0;
+        var current  = perPage * Math.max(req.query.current - 1, 0) || 0;
         var whereClause = {};
             
         if (req.query.name) whereClause.name = { contains: req.query.name };
