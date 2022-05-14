@@ -41,22 +41,58 @@
       width: 200px;
       height: 200px;
     }
+
+    li{
+            line-height: 48px;
+            list-style-type: none;
+            float: left;
+            justify-content: space-around;
+            display: flex;
+            flex-wrap: wrap
+        }
+
+        a{
+            display: block;
+            text-decoration: none;
+            color: #777777;
+            font-size: 18px;
+            padding: 0 39px;
+        }
+
+        .li:hover{
+            background-color: #3F3F3F;
+            color: #E8E7E3;
+        }
+
+        a :hover{
+            color: blue;
+        }
   </style>
 
 </head>
 
 <body>
 
+  <div>
+    <li>
+        <a class="li" href="https://bulma.io/"><strong>BULMA</strong></a>
+    </li>
+
+    <li>
+        <a class="li" href="/">Home</a>
+    </li>
+
+    <li>
+        <a class="li" href="/vistor/search">Search</a>
+    </li>
+
+</div>
+
   <div id="box1">
     <h1><strong style="color: white; font-size: 30px;">Digital Rights Management System</strong></h1>
     <h6>Digital Rights Management System incorporates blockchain technology to maintain users' copyrights. All
       information will be stored on the blockchain and will be traceable and tamper-evident.</h6>
   </div>
-
-
-  <span class="imagecon">
-    Add some intro. here
-  </span>
 
 
     <span class="loginbox">
