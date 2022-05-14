@@ -82,16 +82,17 @@
             <h6>Digital Rights Management System incorporates blockchain technology to maintain users' copyrights. All information will be stored on the blockchain and will be traceable and tamper-evident.</h6>
         </div>
 
-        <section class="section" style="float: right;">
+        <section class="section" style="float: left;">
             <div class="container" style=" justify-content: space-around; flex-wrap: wrap; float: left;">
         
                     <% persons.forEach( function(person) { %>                           
                                    
-                                <div class="is-half-mobile" style="background-color: lightgrey; margin-top: 30px;">
+                                <div class="is-half-mobile" style=" float: left; background-color: lightgrey; margin-top: 30px;">
                                     <image class="is-square" style="width: 300px; height: 300px; float: left; object-fit: fill;"
                                 src="<%=person.url%>" />
+                                </div>
 
-                                <div style=" margin-left: 20px; float: left; overflow: hidden; text-overflow: ellipsis;">
+                                <div style=" width: 45%; margin-top: 30px; margin-left: 20px; float: left; overflow: hidden; text-overflow: ellipsis;">
                                     <p><strong style="font-style: italic;">Product name: <%=person.name%></strong> </p>
                                     <br>
                                     <p> Operation Date: <%=person.date%></p>

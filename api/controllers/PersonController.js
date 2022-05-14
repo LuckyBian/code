@@ -56,7 +56,17 @@ module.exports = {
         
         var person = await Person.create(req.body).fetch();
     
-        return res.view('person/page');
+        var whereClause = {};
+         
+         whereClause.he = "on";
+         
+         var thosePersons = await Person.find({
+             where: whereClause,
+             sort: 'he'
+         });
+         
+         return res.view('person/page', { persons: thosePersons });
+        
     },
 
     json: async function(req,res){
