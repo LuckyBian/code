@@ -56,7 +56,7 @@ module.exports = {
         
         var person = await Person.create(req.body).fetch();
     
-        return res.status(201).json({ id: person.id });
+        return res.view('person/page');
     },
 
     json: async function(req,res){
