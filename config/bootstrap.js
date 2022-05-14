@@ -24,14 +24,7 @@ async function generateUsers() {
 
 	await User.createEach([
 		{ username: "admin", password: hashedPassword, type:"admin" },
-		{ username: "student1", password: hashedPassword,type:"student" },
-		{ username: "student2", password: hashedPassword,type:"student" },
-		{ username: "student3", password: hashedPassword,type:"student" },
-		{ username: "student4", password: hashedPassword,type:"student" },
-		{ username: "student5", password: hashedPassword,type:"student" },
-		{ username: "student6", password: hashedPassword,type:"student" },
-		{ username: "student7", password: hashedPassword,type:"student" },
-		
+		{username:"admin2",password: hashedPassword, type:"admin"}
 		// etc.
 	]);
 
