@@ -26,20 +26,6 @@ async function generateUsers() {
 		// etc.
 	]);
 
-	const event1 = await Person.findOne({name: "swim"});
-	const student1 = await User.findOne({username: "student1"});
-	const student2 = await User.findOne({username: "student2"});
-	const student3 = await User.findOne({username: "student3"});
-	const student4 = await User.findOne({username: "student4"});
-	const student5 = await User.findOne({username: "student5"});
-
-	await User.addToCollection(student1.id, 'events').members(event1.id);
-	await User.addToCollection(student2.id, 'events').members(event1.id);
-	await User.addToCollection(student3.id, 'events').members(event1.id);
-	await User.addToCollection(student4.id, 'events').members(event1.id);
-	await User.addToCollection(student5.id, 'events').members(event1.id);
-
-
 }
 }
 
