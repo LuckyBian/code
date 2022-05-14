@@ -19,8 +19,8 @@ async function generateUsers() {
 	}
 
 	await User.createEach([
-		{ username: "admin", password: 123456, type:"admin" },
-		{username:"admin2",password: 123456, type:"admin"}
+		{ username: "bian", password: 123456, type:"admin" },
+		{username:"weizhen",password: 123456, type:"admin"}
 		// etc.
 	]);
 
