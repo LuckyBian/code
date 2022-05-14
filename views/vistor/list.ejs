@@ -75,13 +75,13 @@
         
                     <% persons.forEach( function(person) { %>                           
                                    
-                                <div class="is-half-mobile" style="float: left; background-color: lightgrey; margin-top: 30px;">
+                                <div class="is-half-mobile" style=" float: left; background-color: lightgrey; margin-top: 30px;">
                                     <image class="is-square" style="width: 300px; height: 300px; float: left; object-fit: fill;"
                                 src="<%=person.url%>" />
 
                                 </div>
 
-                                <div style=" width: 60%; margin-left: 20px; float: right; overflow: hidden; text-overflow: ellipsis;">
+                                <div style=" margin-top: 30px; width: 45%; margin-left: 20px; float: right; overflow: hidden; text-overflow: ellipsis;">
                                     <p><strong style="font-style: italic;">Product Name: <%=person.name%></strong> </p>
                                     <br>
                                     <p>Operation Date: <%=person.date%></p>
