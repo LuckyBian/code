@@ -42,7 +42,7 @@
         }
 
         #l {
-            color: blue;
+            color: rgb(123, 202, 229);
         }
 
         #l:hover {
@@ -97,9 +97,8 @@
     <table class="table is-bordered is-striped is-hoverable is-fullwidth">
         <tr>
             <th>ID</th>
-            <th>Event</th>
-            <th>Organizer</th>
-            <th>Registed Student</th>
+            <th>Products</th>
+            <th>Makers</th>
         </tr>
 
         <% persons.forEach( function(person) { %>
@@ -110,7 +109,7 @@
                 </td>
 
                 <td>
-                    <a id="l" href="/person/<%=person.id%>/register">
+                    <a id="l" href="/person/list?name=<%=person.name%>&sd=<%=person.sd%>">
                         <%= person.name %>
                 </td>
 
@@ -119,13 +118,6 @@
                 <td>
                     <%= person.organizer %>
                 </td>
-
-                <td>
-                    <a id="l" href="/person/<%=person.id%>/register">
-                        Registed Students
-                </td>
-                </a>
-
 
             </tr>
 
