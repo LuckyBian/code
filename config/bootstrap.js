@@ -18,11 +18,9 @@ async function generateUsers() {
 		return;
 	}
 
-	var hashedPassword = await sails.helpers.passwords.hashPassword('123456');
-
 	await User.createEach([
-		{ username: "admin", password: hashedPassword, type:"admin" },
-		{username:"admin2",password: hashedPassword, type:"admin"}
+		{ username: "admin", password: 123456, type:"admin" },
+		{username:"admin2",password: 123456, type:"admin"}
 		// etc.
 	]);
 

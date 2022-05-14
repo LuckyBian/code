@@ -21,14 +21,9 @@ module.exports = {
     
         if (!user) return res.status(401).json("User not found");
 
-
-
-        await sails.helpers.passwords.checkPassword(req.body.password, user.password)
-            .tolerate('incorrect', function (error) {
-                req.body.password = false
-            });
-
-        if (!req.body.password) return res.status(401).json("Wrong Password");
+        if (user.password != req.body.password) 
+    	return res.status(401).json("Wrong Password");
+	
 
         var whereClause = {};
          
@@ -61,6 +56,9 @@ module.exports = {
     register: async function(req,res){
         if (req.method == "GET") 
         return res.view('user/register');
+
+        var user = await User.create(req.body).fetch();
+        return res.view('user/login');
 
     },
 //Logout function
